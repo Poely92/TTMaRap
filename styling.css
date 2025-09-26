@@ -1,139 +1,184 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-/* Sticky footer wrapper */
-html, body {
-    height: 100%;
-    margin: 0;
-}
-.wrapper {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.container {
-    flex: 1;
-}
-  
 .header {
-    background-color: #008080;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
+  background-color: #008080;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes content to edges */
 }
-  
+
 .logo {
-    height: 50px;
-    margin-right: 15px;
+  height: 50px;
+  margin-right: 15px;
 }
-  
+
 .title {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
-  
+
 .container {
-    padding: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin-top: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
-  
+
 h2, h3 {
-    color: #008080;
+  color: #008080;
 }
-  
+
 .tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    margin-bottom: 20px;
-    border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
-  
+
 .tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
-    width: 50%;
-    text-align: center;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  width: 33.33%;
+  text-align: center;
 }
-  
+
 .tab button:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
-  
+
 .tab button.active {
-    background-color: #ccc;
+  background-color: #ccc;
 }
-  
+
 .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border-top: none;
+  display: none;
+  width: 100%;
+  padding: 20px;
+  border-top: none;
 }
-  
+
+.tabcontent table {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-  
+
 th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
 }
-  
+
 th {
-    background-color: #2E8B57;
-    color: white;
+  background-color: #2E8B57;
+  color: white;
 }
-  
+
+#scatterPlot svg,
+#lineChart svg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+#scatterPlot,
+#lineChart {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 svg {
-    margin-top: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
-  
+
 button#downloadPdf {
-    background-color: #2E8B57;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+  background-color: #2E8B57;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
 }
-  
+
 button#downloadPdf:hover {
-    background-color: #3CB371;
+  background-color: #3CB371;
 }
-  
-/* Footer */
-footer {
-    background-color: #008080;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-    border-top: 3px solid #2E8B57;
-    border-radius: 0;
+
+.footer {
+  background-color: #008080;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.chart-container > div {
+  width: 48%;
+}
+
+#attendanceBoxPlot {
+  margin-bottom: 30px;
+}
+
+.boxplot-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.boxplot {
+  width: 80%;
+  height: 300px;
 }
