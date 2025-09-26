@@ -145,7 +145,7 @@ function displayWaitingRoster(data) {
   });
 
   const waitingPercentage = totalNonEmpty > 0 ? (totalWaiting / totalNonEmpty * 100).toFixed(2) : 0;
-  html += `<tr><td><strong>Subtotal</strong></td><td><strong>${totalWaiting} (${waitingPercentage}%)</strong></td></tr>`;
+  html += `<tr><td><strong>Subtotaal</strong></td><td><strong>${totalWaiting} (${waitingPercentage}%)</strong></td></tr>`;
   html += '</table>';
 
   document.getElementById('waitingRoster').innerHTML = html;
@@ -174,7 +174,7 @@ function displayActiveRoster(data) {
   });
 
   const activePercentage = totalNonEmpty > 0 ? (totalActive / totalNonEmpty * 100).toFixed(2) : 0;
-  html += `<tr><td><strong>Subtotal</strong></td><td><strong>${totalActive} (${activePercentage}%)</strong></td></tr>`;
+  html += `<tr><td><strong>Subtotaal</strong></td><td><strong>${totalActive} (${activePercentage}%)</strong></td></tr>`;
   html += '</table>';
 
   document.getElementById('activeRoster').innerHTML = html;
