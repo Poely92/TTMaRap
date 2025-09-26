@@ -3,39 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TopTaal Rapportage</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.5.25/dist/jspdf.plugin.autotable.min.js"></script>
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <title>Megarapportage</title>
   <link rel="stylesheet" href="styling.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
+  <!-- ✅ Added header -->
   <div class="header">
-    <img src="https://www.toptaal.nl/wp-content/themes/FoundationPress-child/assets/img/logo.svg" alt="TopTaal Logo" class="logo">
-    <div class="title">Rapporteer d'r op los</div>
+    <img src="https://www.toptaal.nl/wp-content/themes/FoundationPress-child/assets/img/logo.svg" alt="Logo" class="logo">
+    <div class="title">Megarapportage</div>
+
+     <input type="file" id="fileInput" accept=".xlsx, .xls" style="display: none;">
+    <button onclick="document.getElementById('fileInput').click()">Upload je Megalijst</button>
   </div>
+
   <div class="container">
-    <h2>Upload je Megalijst</h2>
-    <input type="file" id="fileInput" accept=".xlsx, .xls" />
 
     <div class="tab">
-      <button class="tablinks" onclick="openTab(event, 'Roster')" id="defaultOpen">Status</button>
+      <button class="tablinks" onclick="openTab(event, 'Roster')" id="defaultOpen">Statussen</button>
       <button class="tablinks" onclick="openTab(event, 'LineChart')">Aanmeldingen</button>
+      <button class="tablinks" onclick="openTab(event, 'ScatterPlot')">Wachtlijst</button>
+      <button class="tablinks" onclick="openTab(event, 'OnderbrekingRoster')">Onderbrekers</button>
+      <button class="tablinks" onclick="openTab(event, 'AttendanceAnalysis')">Aanwezigheid</button>
+      <button class="tablinks" onclick="openTab(event, 'GroepscodeRoster')">Wachtenden per groepscode</button>
     </div>
 
     <div id="Roster" class="tabcontent">
-      <h3>Statuscount</h3>
-      <div id="roster"></div>
+      <div id="waitingRoster"></div>
+      <div id="activeRoster"></div>
     </div>
 
     <div id="LineChart" class="tabcontent">
-      <h3>Aanmeldingen per maand</h3>
       <div id="lineChart"></div>
     </div>
 
-    <button id="downloadPdf">Download als PDF</button>
+    <div id="ScatterPlot" class="tabcontent">
+      <div id="scatterPlot"></div>
+      <div id="longWaitRoster"></div>
+    </div>
+
+    <div id="OnderbrekingRoster" class="tabcontent">
+      <div id="onderbrekingRoster"></div>
+    </div>
+
+    <div id="AttendanceAnalysis" class="tabcontent">
+      <div class="chart-container">
+        <div class="chart">
+          <div id="totalAttendancePieChart"></div>
+        </div>
+        <div class="chart">
+          <div id="monthlyAttendancePieChart"></div>
+        </div>
+      </div>
+      <div id="lowAttendanceRoster"></div>
+    </div>
+
+    <div id="GroepscodeRoster" class="tabcontent">
+      <div id="groepscodeRoster"></div>
+    </div>
+
+    <!-- <button id="downloadPdf">Download als PDF</button> -->
+  </div>
+
+  <div class="footer">
+    Copyright 2025 Toptaalgroep - Paul de Raadt
   </div>
 
   <script src="app.js"></script>
@@ -54,10 +87,8 @@
       evt.currentTarget.className += " active";
     }
 
-    // Get the element with id="defaultOpen" and click on it
+    // Open the default tab on page load
     document.getElementById("defaultOpen").click();
   </script>
 </body>
-<footer>Gemaakt door Paul de Raadt @ Toptaal</footer>
-
 </html>
